@@ -18,10 +18,13 @@ for turtle_index in range(3):
     crazy.goto(-(turtle_index * 20), 0)
     turtle_list.append(crazy)
 
+screen.update()
+
 is_game_on = True
 while is_game_on:
     for turtle in turtle_list:
         turtle.forward(20)
         turtle.right(90)
+
 
 screen.exitonclick()
