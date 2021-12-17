@@ -5,7 +5,7 @@ screen = Screen()
 screen.setup(width=1050, height=650)
 screen.bgcolor("black")
 screen.title("Chisoft Snake Game")
-screen.tracer(0)
+#screen.tracer(0)
 
 turtle_list = []
 directions = [0, 90, 180, 270]
@@ -18,13 +18,18 @@ for turtle_index in range(3):
     crazy.goto(-(turtle_index * 20), 0)
     turtle_list.append(crazy)
 
-screen.update()
+#screen.update()
 
 is_game_on = True
 while is_game_on:
     for turtle in turtle_list:
-        turtle.forward(20)
-        turtle.right(90)
+        turtle.forward(40)
+        turtle.setheading(15)
+        turtle.forward(-10)
+        turtle.setheading(5)
+        if turtle.xcor() > 500:
+            #screen.update()
+            is_game_on = False
 
 
 screen.exitonclick()
