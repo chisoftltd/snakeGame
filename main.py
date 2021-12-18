@@ -1,9 +1,12 @@
 import time
 from turtle import Turtle, Screen
+
+from food import Food
 from snake import Snake
-import random
+
 
 screen = Screen()
+food = Food()
 screen.setup(width=1050, height=650)
 screen.bgcolor("black")
 screen.title("Chisoft Snake Game")
@@ -24,6 +27,8 @@ while is_game_on:
     time.sleep(0.1)
     snake.move()
 
-screen.exitonclick()
-7048381543
+    if snake.head.distance(food) < 15:
+        food.refresh()
+        print("Snake and food collide")
 
+screen.exitonclick()
