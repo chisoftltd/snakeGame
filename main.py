@@ -25,3 +25,5 @@ while is_game_on:
     snake.move()
 
 screen.exitonclick()
+7048381543
+
