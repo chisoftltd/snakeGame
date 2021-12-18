@@ -3,10 +3,14 @@ from turtle import Turtle, Screen
 
 from food import Food
 from snake import Snake
+from scoreboard import ScoreBoard
 
 
 screen = Screen()
 food = Food()
+scoreboard = ScoreBoard()
+
+
 screen.setup(width=1050, height=650)
 screen.bgcolor("black")
 screen.title("Chisoft Snake Game")
@@ -14,6 +18,9 @@ screen.tracer(0)
 
 snake = Snake()
 screen.listen()
+
+score = 0
+scoreboard.displayscore(score)
 screen.onkey(snake.up, "Up")
 screen.onkey(snake.down, "Down")
 screen.onkey(snake.left, "Left")
@@ -28,6 +35,8 @@ while is_game_on:
     snake.move()
 
     if snake.head.distance(food) < 15:
+        score += 1
+        scoreboard.displayscore(score)
         food.refresh()
         print("Snake and food collide")
 
