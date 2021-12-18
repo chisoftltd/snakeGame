@@ -1,3 +1,4 @@
+import time
 from turtle import Turtle, Screen
 import random
 
@@ -22,9 +23,10 @@ screen.update()
 
 is_game_on = True
 while is_game_on:
-    for turtle in turtle_list:
-        turtle.forward(40)
-        screen.update()
-
-
+    screen.update()
+    time.sleep(0.1)
+    for turtle_num in range(len(turtle_list) - 1, 0, -1):
+        new_x = turtle_list[turtle_num - 1].xcor()
+        new_y = turtle_list[turtle_num - 1].ycor()
+        turtle_list[turtle_num].goto(new_x, new_y)
 screen.exitonclick()
