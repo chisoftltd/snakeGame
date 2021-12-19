@@ -1,10 +1,7 @@
-from turtle import Turtle
+from turtle import Turtle, Screen
 
 
-# from food import Food
-
-
-class ScoreBoard(Turtle):
+class ScoreBoard(Turtle, Screen):
 
     def __init__(self):
         super().__init__()
@@ -25,4 +22,9 @@ class ScoreBoard(Turtle):
 
     def game_over(self):
         self.goto(0, 0)
-        self.write("GAME OVER!", move=False, align="center", font=("Verdana", 15, "normal"))
+        self.write("Thank you for experiencing our products and services, bye!", move=False, align="center", font=
+        ("Verdana", 15, "normal"))
+
+    def game_continue(self):
+        reply = self.textinput("GAME OVER!", "Do you want to continue the game? 'yes' or 'no' ")
+        return reply

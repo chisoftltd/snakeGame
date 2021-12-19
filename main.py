@@ -1,5 +1,5 @@
 import time
-from turtle import Turtle, Screen
+from turtle import Screen
 
 from food import Food
 from snake import Snake
@@ -25,6 +25,7 @@ screen.onkey(snake.down, "Down")
 screen.onkey(snake.left, "Left")
 screen.onkey(snake.right, "Right")
 
+
 screen.update()
 
 is_game_on = True
@@ -39,12 +40,18 @@ while is_game_on:
         scoreboard.increment()
 
     if snake.head.xcor() > 523 or snake.head.xcor() < -523 or snake.head.ycor() > 323 or snake.head.ycor() < -323:
-        is_game_on = False
-        scoreboard.game_over()
+        if scoreboard.game_continue() == 'no':
+            is_game_on = False
+            scoreboard.game_over()
+        elif scoreboard.game_continue() == 'yes':
+            pass
 
     for segment in snake.segments[1:]:
         if snake.head.distance(segment) < 10:
-            is_game_on = False
-            scoreboard.game_over()
+            if scoreboard.game_continue() == 'no':
+                is_game_on = False
+                scoreboard.game_over()
+            elif scoreboard.game_continue() == 'yes':
+                pass
 
 screen.exitonclick()
