@@ -30,6 +30,7 @@ class Snake:
             new_x = self.segments[turtle_num - 1].xcor()
             new_y = self.segments[turtle_num - 1].ycor()
             self.segments[turtle_num].goto(new_x, new_y)
+            self.segments[turtle_num].speed("fastest")
         self.segments[0].forward(MOVE_DISTANCE)
 
     def extend(self):
