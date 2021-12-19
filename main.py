@@ -63,8 +63,6 @@ while is_game_on:
         elif game_continue() == 'y':
             screen.clear()
             reset()
-            snake.create_snake()
-            food.refresh()
             is_game_on = True
 
     for segment in snake.segments[1:]:
@@ -75,8 +73,6 @@ while is_game_on:
             elif game_continue() == 'y':
                 screen.clear()
                 reset()
-                snake.create_snake()
-                food.refresh()
                 is_game_on = True
 
 screen.exitonclick()
