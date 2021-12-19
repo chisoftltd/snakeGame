@@ -1,7 +1,7 @@
 from turtle import Turtle, Screen
 
 
-class ScoreBoard(Turtle, Screen):
+class ScoreBoard(Turtle):
 
     def __init__(self):
         super().__init__()
@@ -24,7 +24,3 @@ class ScoreBoard(Turtle, Screen):
         self.goto(0, 0)
         self.write("Thank you for experiencing our products and services, bye!", move=False, align="center", font=
         ("Verdana", 15, "normal"))
-
-    def game_continue(self):
-        reply = self.textinput("GAME OVER!", "Do you want to continue the game? 'yes' or 'no' ")
-        return reply
