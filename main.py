@@ -37,6 +37,9 @@ def reset():
     screen.bgcolor("black")
     screen.title("Chisoft Snake Game")
     screen.tracer(0)
+    screen.clear()
+    snake.create_snake()
+    food.refresh()
 
 
 screen.onkey(snake.up, "Up")
@@ -61,10 +64,7 @@ while is_game_on:
             is_game_on = False
             scoreboard.game_over()
         elif game_continue() == 'y':
-            screen.clear()
             reset()
-            snake.create_snake()
-            food.refresh()
             is_game_on = True
 
     for segment in snake.segments[1:]:
@@ -73,10 +73,7 @@ while is_game_on:
                 is_game_on = False
                 scoreboard.game_over()
             elif game_continue() == 'y':
-                screen.clear()
                 reset()
-                snake.create_snake()
-                food.refresh()
                 is_game_on = True
 
 screen.exitonclick()
